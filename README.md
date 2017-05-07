@@ -84,3 +84,46 @@ If it did, that would mean that you’d be trying to setState on an unmounted co
 which not only won’t work, but React will yell at you for.
 Doing AJAX in componentDidMount will guarantee that there’s a component to update.
 ```
+
+#LifeCycle
+[Reference](https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1)
+
+1. componentWillMount
+- Most Common Use Case: App configuration in your root component.
+- Can call setState: Don’t. Use default state instead.
+
+```
+constructor(prop) {
+  super(prop)
+  this.state = {
+    analyticsOpen: false,
+    requirementsOpen: false,
+    brandInfoOpen: false
+  }
+}
+```
+
+2. componentDidMount
+- Starting AJAX calls to load in data for your component.
+- Can call setState: Yes.
+
+3. componentWillReceiveProps
+- Most Common Use Case: Acting on particular prop changes to trigger state transitions.
+- Can call setState: Yes.
+
+4. shouldComponentUpdate
+- Controlling exactly when your component will re-render.
+- Can call setState: No.
+
+5. componentWillUpdate
+- basically the same as componentWillReceiveProps, except you are not allowed to call this.setState.
+- Used instead of componentWillReceiveProps on a component that also has shouldComponentUpdate (but no access to previous props).
+- Can call setState: No.
+
+6. componentDidUpdate
+- Updating the DOM in response to prop or state changes.
+- Can call setState: Yes.
+
+7. componentWillUnmount
+- Cleaning up any leftover debris from your component.
+- Can call setState: No.
