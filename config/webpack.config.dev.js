@@ -159,6 +159,19 @@ module.exports = {
       },
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "url" loader exclusion list.
+      {
+        test: /\.(js|jsx)$/,
+        include: paths.appSrc,
+        loader: 'babel',
+        query: {
+          plugins: ['transform-react-inline-elements'], // Add this
+
+          // This is a feature of `babel-loader` for webpack (not Babel itself).
+          // It enables caching results in ./node_modules/.cache/babel-loader/
+          // directory for faster rebuilds.
+          cacheDirectory: true
+        }
+      },
     ]
   },
   
