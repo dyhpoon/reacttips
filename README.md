@@ -76,3 +76,11 @@ Simply add
   "plugins": ["transform-react-inline-elements"]
 }
 ```
+
+# Do not start any AJAX call in componentWillMount
+```
+You can’t guarantee the AJAX request won’t resolve before the component mounts.
+If it did, that would mean that you’d be trying to setState on an unmounted component,
+which not only won’t work, but React will yell at you for.
+Doing AJAX in componentDidMount will guarantee that there’s a component to update.
+```
