@@ -24,8 +24,9 @@ Stateful component is actually wrapped in a class internally. Therefore, its the
 
 The original React 0.14 release notes
 ```
-This pattern is designed to encourage the creation of these simple components that should comprise large portions of your apps. In the future, we’ll also be able to make performance optimizations specific to these components by avoiding unnecessary checks and memory allocations.
-
+This pattern is designed to encourage the creation of these simple components that should comprise 
+large portions of your apps. In the future, we’ll also be able to make performance optimizations specific
+to these components by avoiding unnecessary checks and memory allocations.
 ```
 
 However, there is a hacky way to skip these overheads.
@@ -85,8 +86,7 @@ which not only won’t work, but React will yell at you for.
 Doing AJAX in componentDidMount will guarantee that there’s a component to update.
 ```
 
-#LifeCycle
-[Reference](https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1)
+# LifeCycle [Reference](https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1)
 
 1. componentWillMount
 - Most Common Use Case: App configuration in your root component.
